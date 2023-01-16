@@ -1,0 +1,7 @@
+npm install @ngrx/store --save --force
+
+npm install @ngrx/effects --save --force
+
+npm install @ngrx/store-devtools --save --force
+
+ferramenta browser redux devtools
