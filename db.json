@@ -2,27 +2,63 @@
   "usuarios": [
     {
       "id": 1,
-      "nome": "user 1",
-      "idade": 35,
-      "perfil": "administrador"
-    },
-    {
-      "id": 2,
-      "nome": "user 2",
-      "idade": 55,
-      "perfil": "Diretor"
+      "nome": "Robo",
+      "idade": "185",
+      "perfil": "Robo"
     },
     {
       "id": 3,
-      "nome": "user 3",
-      "idade": 25,
-      "perfil": "consultor"
+      "nome": "luca",
+      "idade": "26",
+      "perfil": "Cientista"
     },
     {
       "id": 4,
-      "nome": "john",
-      "idade": "34",
-      "perfil": "bueno"
+      "nome": "Magus",
+      "idade": "48",
+      "perfil": "Mago"
+    },
+    {
+      "id": 5,
+      "nome": "Luca",
+      "idade": "28",
+      "perfil": "Cientista"
+    },
+    {
+      "id": 7,
+      "nome": "Marlem",
+      "idade": "27",
+      "perfil": "Caçadora"
+    },
+    {
+      "id": 8,
+      "nome": "admin",
+      "idade": "45",
+      "perfil": "Administrador"
+    },
+    {
+      "id": 9,
+      "nome": "ADMI 2",
+      "idade": "18",
+      "perfil": "Administrador"
+    },
+    {
+      "id": 10,
+      "nome": "Maria",
+      "idade": "28",
+      "perfil": "Mago"
+    },
+    {
+      "id": 11,
+      "nome": "Marcus",
+      "idade": "28",
+      "perfil": "Mago"
+    },
+    {
+      "id": 12,
+      "nome": "Agatha",
+      "idade": "26",
+      "perfil": "Mago"
     }
   ]
 }

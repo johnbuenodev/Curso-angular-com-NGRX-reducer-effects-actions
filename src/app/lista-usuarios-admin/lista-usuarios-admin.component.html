@@ -1,0 +1,129 @@
+<h3>LISTA DE USUARIOS ADMIN COM FILTER NO REDUCER - FORMA 5 COM PROPS NUMBER & STRING - INPUT STRING & NUMBER</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listaUsuariosForma5">
+            <td>{{user?.id}}</td>
+            <td>{{user?.nome}}</td>
+            <td>{{user?.idade}}</td>
+            <td>{{user?.perfil}}</td>
+        </tr>
+    </tbody>
+</table>
+<h5> |||||||||||||||||||||||||||||||||||||||||||||||||||||||||| </h5>
+<h3>LISTA DE USUARIOS ADMIN COM FILTER NO REDUCER - FORMA 1</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listaUsuariosAdmin$ | async">
+            <td>{{user?.id}}</td>
+            <td>{{user?.nome}}</td>
+            <td>{{user?.idade}}</td>
+            <td>{{user?.perfil}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>LISTA DE USUARIOS ADMIN COM FILTER NO REDUCER - FORMA 2</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listaUsuariosAdmin">
+            <td>{{user?.id}}</td>
+            <td>{{user?.nome}}</td>
+            <td>{{user?.idade}}</td>
+            <td>{{user?.perfil}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>LISTA DE USUARIOS ADMIN COM FILTER NO REDUCER - FORMA 3</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listaUsuarios">
+            <td>{{user?.id}}</td>
+            <td>{{user?.nome}}</td>
+            <td>{{user?.idade}}</td>
+            <td>{{user?.perfil}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>LISTA DE USUARIOS ADMIN COM FILTER NO REDUCER - FORMA 4 COM PROPS</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listaUsuariosWithProps">
+            <td>{{user?.id}}</td>
+            <td>{{user?.nome}}</td>
+            <td>{{user?.idade}}</td>
+            <td>{{user?.perfil}}</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3>LISTA DE USUARIOS ADMIN COM FILTER NO REDUCER - FORMA 4 COM PROPS NUMBER & STRING</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of listaUsuariosWithPropsNumber">
+            <td>{{user?.id}}</td>
+            <td>{{user?.nome}}</td>
+            <td>{{user?.idade}}</td>
+            <td>{{user?.perfil}}</td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+

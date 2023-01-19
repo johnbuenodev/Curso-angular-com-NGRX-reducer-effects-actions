@@ -1,6 +1,6 @@
 export class Usuario {
     id?:number;
-    nome!:string;
-    idade!:number;
-    perfil!:string;
+    nome?:string;
+    idade?:number;
+    perfil?:string;
 }

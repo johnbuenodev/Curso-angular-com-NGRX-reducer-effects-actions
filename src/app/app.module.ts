@@ -14,13 +14,15 @@ import { appEffects, appReducer } from './Store/app-state';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { ListarUsuarioComponent } from './listar-usuario/listar-usuario.component';
 import { MainComponent } from './main/main.component';
+import { ListaUsuariosAdminComponent } from './lista-usuarios-admin/lista-usuarios-admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListarUsuarioComponent,
     MainComponent,
-    CadastroUsuarioComponent
+    CadastroUsuarioComponent,
+    ListaUsuariosAdminComponent
   ],
   imports: [
     BrowserModule,

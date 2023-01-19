@@ -5,3 +5,16 @@ npm install @ngrx/effects --save --force
 npm install @ngrx/store-devtools --save --force
 
 ferramenta browser redux devtools
+
+
+//versions
+
+
+https://www.npmpeer.dev/packages/@ngrx/store/compatibility
+
+https://www.ifourtechnolab.com/blog/what-s-new-in-ngrx-version-12-of-angular
+
+
+//Bootstrap
+
+https://getbootstrap.com/docs/5.0/components/modal/

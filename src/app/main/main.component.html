@@ -19,3 +19,20 @@
         </div>
     </div>
 </div>
+
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col col-6">
+            <input [(ngModel)]="numberChoose" type="number" id="numberChoose" name="numberChoose">
+            <br>
+            <br>
+            <input [(ngModel)]="stringChoose" type="text" id="stringChoose" name="stringChoose">
+            <br>
+            <br>
+            <app-lista-usuarios-admin [buscarString]="stringChoose!"
+                [buscarNumber]="numberChoose!"></app-lista-usuarios-admin>
+        </div>
+    </div>
+</div>

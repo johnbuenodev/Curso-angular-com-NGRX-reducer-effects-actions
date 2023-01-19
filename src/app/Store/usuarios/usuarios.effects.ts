@@ -1,7 +1,6 @@
 import { Injectable } from "@angular/core";
 
-import { Actions } from "@ngrx/effects";
-import { createEffect, ofType } from "@ngrx/effects/src";
+import { Actions, createEffect, ofType } from "@ngrx/effects";
 
 import { of } from "rxjs";
 import { catchError, exhaustMap, map } from "rxjs/operators";
@@ -50,7 +49,8 @@ export class UsuariosEffects {
         ofType(fromUsuariosAction.usuariosTypeAction.CREATE_USUARIO),
         exhaustMap((record: any) => this.usuarioService.addUsuario(record.payload)
           .pipe(
-            map(payload => fromUsuariosAction.CreateUsuarioSuccess(Object(payload)), //{ payload }
+            map(payload =>
+              fromUsuariosAction.CreateUsuarioSuccess({ payload: payload }), //{ payload } or (new Object(payload))
               catchError(error => of(fromUsuariosAction.CreateUsuarioFail({ error })))
             )
           )
@@ -65,7 +65,7 @@ export class UsuariosEffects {
         ofType(fromUsuariosAction.usuariosTypeAction.UPDATE_USUARIO),
         exhaustMap((record: any) => this.usuarioService.updateUsuario(record.payload)
           .pipe(
-            map(payload => fromUsuariosAction.UpdateUsuarioSuccess(Object(payload)), //{ payload }
+            map(payload => fromUsuariosAction.UpdateUsuarioSuccess({ payload: payload }), //{ payload }
               catchError(error => of(fromUsuariosAction.UpdateUsuarioFail({ error })))
             )
           )

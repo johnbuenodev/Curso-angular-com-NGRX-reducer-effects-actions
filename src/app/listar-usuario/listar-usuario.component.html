@@ -3,20 +3,61 @@
 <table class="table">
     <thead>
         <tr>
-           <td>ID</td>
-           <td>Nome</td>
-           <td>Idade</td>
-           <td>Perfil</td>
-           <td>Ações</td>
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Idade</td>
+            <td>Perfil</td>
+            <td>Ações</td>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let user of usuarioList">
-           <td>{{user.id}}</td>
-           <td>{{user.nome}}</td>
-           <td>{{user.idade}}</td>
-           <td>{{user.perfil}}</td>
-           <td><button class="btn btn-primary">Editar</button></td>
+        <tr *ngFor="let user of listaUsuarios$ | async">
+            <td>{{user?.id}}</td>
+            <td>{{user?.nome}}</td>
+            <td>{{user?.idade}}</td>
+            <td>{{user?.perfil}}</td>
+            <!-- Button trigger modal -->
+            <td><button class="btn btn-primary" style="margin:8px;" (click)="editar(user)" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" type="button">Editar</button>
+                <button class="btn btn-secondary" style="margin:8px;" (click)="excluir(user.id!)" type="button">Excluir</button>
+            </td>
         </tr>
     </tbody>
 </table>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Alterar Registro</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" *ngIf="(selectUsuario$ | async ) as usuario">
+                <form id="myform" #f="ngForm" (ngSubmit)="update(usuario)">
+                    <div class="col-6"> <!-- *ngIf="user.id" SÓ QUANDO O EDITAR ESTIVER FUNCIONANDO BUTTON -->
+                        <label>ID</label>
+                        <input id="id" name="id" [(ngModel)]="usuario.id" class="form-control" type="number" readonly>
+                    </div>
+                    <div class="col-6">
+                        <label>Nome</label>
+                        <input id="nome" name="nome" [(ngModel)]="usuario.nome" class="form-control" type="text">
+                    </div>
+                    <div class="col-6">
+                        <label>Idade</label>
+                        <input id="idade" name="idade" [(ngModel)]="usuario.idade" class="form-control" type="text">
+                    </div>
+                    <div class="col-6">
+                        <label>Perfil</label>
+                        <input id="perfil" name="perfil" [(ngModel)]="usuario.perfil" class="form-control" type="text">
+                    </div>
+                    <button type="button" class="btn btn-primary" type="submit">Save</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

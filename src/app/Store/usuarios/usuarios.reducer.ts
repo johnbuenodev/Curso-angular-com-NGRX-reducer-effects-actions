@@ -1,6 +1,6 @@
-import { Action, createReducer, on } from "@ngrx/store";
-import { createFeatureSelector, createSelector } from "@ngrx/store/src";
+import { Action, createFeatureSelector, createReducer, createSelector, on } from "@ngrx/store";
 import { InitialState } from "@ngrx/store/src/models";
+import { filter } from "rxjs/operators";
 
 import { Usuario } from "src/app/models/usuario";
 import * as fromUsuariosAction from "../usuarios/usuarios.actions"
@@ -14,7 +14,7 @@ export interface UsuariosState {
 //Inicializar o estado da interface 
 export const initialState: UsuariosState = {
     usuarios: [],
-    usuario: new Usuario(),
+    usuario: new Usuario,
     error: ''
 }
 
@@ -37,7 +37,7 @@ const _usuarioReducer = createReducer(
 
     //PASSA A PROPRIEDADE COM OPERADOR SPRAD ALGO ASSIM O NOME PASSANDO O QUE TEM DE USUARIOS + O QUE RETORNOU DO BACK COM O PAYLOAD
     on(fromUsuariosAction.CreateUsuarioSuccess, (state, { payload }) => ({
-        ...state, usuarios: [...state.usuarios,payload], error: ''
+        ...state, usuarios: [...state.usuarios, payload], error: ''
     })),
     on(fromUsuariosAction.CreateUsuarioFail, (state, { error }) => ({
         ...state, error: error
@@ -63,7 +63,7 @@ const _usuarioReducer = createReducer(
     //DELETE
     on(fromUsuariosAction.DeleteUsuarioSuccess, (state, { payload }) => ({
         ...state, 
-        usuarios: [...state.usuarios].filter((item) => {item.id != payload}), 
+        usuarios: [...state.usuarios].filter(item => item.id !== payload), // funciona ok filter(item => item.id !== payload), 
         error: ''
     })),
     on(fromUsuariosAction.DeleteUsuarioFail, (state, { error }) => ({
@@ -100,10 +100,28 @@ export const getUsuarioErro =  createSelector(
 
 export const getUsuarioAdministradores =  createSelector(
     getUsuariosFeatureState,
-    (state: UsuariosState) => state.usuarios.filter((item) => item.perfil == 'Administrador')
+    (state: UsuariosState) => state.usuarios.filter((item) => item.perfil! == 'Administrador')
+)
+
+/* Funciona mas está depreciado 
+export const getUsuarioAdministradores =  createSelector(
+    getUsuariosFeatureState,
+    (state: UsuariosState, props: {perfil: string}) => state.usuarios.filter((item) => item.perfil! == props.perfil)
+) */
+
+//Aplicando filter passando parametros para o componente/processo
+export const getUsuarioCustomFilterParameter =  (props: { filter: string }) => createSelector(
+    getUsuariosFeatureState,
+    (state: UsuariosState) => state.usuarios.filter((item) => item.perfil! == props.filter)
+)
+
+//Number 
+export const getUsuarioCustomFilterParameterNumber =  (props: { numero: number,perfil:string }) => createSelector(
+    getUsuariosFeatureState,
+    (state: UsuariosState) => state.usuarios.filter((item) => item.idade! == props.numero && item.perfil! == props.perfil)
 )
 
 export const getUsuarioIdadeMaiorQue35 =  createSelector(
     getUsuariosFeatureState,
-    (state: UsuariosState) => state.usuarios.filter((item) => item.idade > 35)
+    (state: UsuariosState) => state.usuarios.filter((item) => item.idade! > 35)
 )

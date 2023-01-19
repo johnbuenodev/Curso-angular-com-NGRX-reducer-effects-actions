@@ -2,7 +2,7 @@
 <form id="myform" #f="ngForm" (ngSubmit)="addUsuario()">
     <div class="col-6" *ngIf="user.id">
         <label>ID</label>
-        <input id="id" name="id" [(ngModel)]="user.id" class="form-control" type="text">
+        <input id="id" name="id" [(ngModel)]="user.id" class="form-control" type="number" readonly>
     </div>
     <div class="col-6">
         <label>Nome</label>

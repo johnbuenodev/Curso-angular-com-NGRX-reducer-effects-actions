@@ -21,7 +21,7 @@ export class UsuarioService {
     return this.http.get<Usuario>('http://localhost:3000/usuarios/'+id);
   }
 
-  addUsuario(newUsuario: Usuario) {
+  addUsuario(newUsuario: Usuario): Observable<Usuario>{
 
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type','application/json; charset=uft-8');
@@ -30,7 +30,7 @@ export class UsuarioService {
     return this.http.post('http://localhost:3000/usuarios',JSON.stringify(newUsuario),{headers:headers});
   }
 
-  updateUsuario(updateUsuario: Usuario) {
+  updateUsuario(updateUsuario: Usuario): Observable<Usuario> {
     let headers = new HttpHeaders();
     headers = headers.set('Content-Type','application/json; charset=uft-8');
 
@@ -38,7 +38,7 @@ export class UsuarioService {
     return this.http.put('http://localhost:3000/usuarios/'+updateUsuario.id,JSON.stringify(updateUsuario),{headers:headers});
   }
 
-  deleteUsuarioById(id:number) {
+  deleteUsuarioById(id:number): Observable<Usuario> {
     return this.http.delete('http://localhost:3000/usuarios/' + id);
   }
 }
